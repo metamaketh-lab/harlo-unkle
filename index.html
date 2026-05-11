@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-SG">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HARLO UNKLE | Singapore Home Services - Plumbing, Handyman, Door Repair & More</title>
-  <meta name="description" content="HARLO UNKLE connects you with local independent service providers in Singapore for plumbing, handyman, door repair, wall mounting, and aircon servicing. Fast, reliable, no-nonsense home help.">
+  <title>HARLO UNKLE | Need help ah? Singapore Home Services</title>
+  <meta name="description" content="HARLO UNKLE connects you with local independent service providers for all your home repair needs in Singapore. We're the routing platform, not the contractor.">
   <meta name="keywords" content="plumber Singapore, handyman Singapore, door repair Singapore, wall mounting Singapore, aircon servicing, HDB repair, home services Singapore">
   <meta name="author" content="HARLO UNKLE">
   <meta name="robots" content="index, follow">
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="HARLO UNKLE | Need help ah? Singapore Home Services">
+  <meta property="og:title" content="HARLO UNKLE | Need help ah?">
   <meta property="og:description" content="Find local plumbers, handymen, door repair, wall mounting & aircon servicing in Singapore. Fast, reliable, no-nonsense.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_SG">
+  <link rel="canonical" href="https://harlo-unkle.pages.dev">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>H</text></svg>">
   
-  <!-- Structured Data / Schema -->
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema -->
   <script type="application/ld+json">
   { 
     "@context": "http://schema.org", 
     "@type": "WebSite", 
-    "@id": "#website",
     "name": "HARLO UNKLE",
-    "url": "https://harlounkle.com",
+    "url": "https://harlo-unkle.pages.dev",
     "description": "Singapore Home Services Routing Platform" 
   }
   </script>
@@ -33,163 +36,157 @@
       {
         "@type": "Question",
         "name": "How much do home repair services cost in Singapore?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Costs vary: Plumbing ($50-$200), Handyman ($40-$150), Door Repair ($60-$250), Wall Mounting ($40-$120), Aircon Servicing ($40-$150 per unit)." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Costs vary by trade. Plumbing usually runs $50-$200, Handyman $40-$150, Door Repair $60-$250, and Wall Mounting $40-$120. We connect you directly with providers for transparent quotes." }
       },
       {
         "@type": "Question",
         "name": "Can I get same-day service for emergencies?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, most providers offer emergency same-day service, especially for plumbing leaks, power trips, and lock issues. Call now!" }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, most providers on our platform offer emergency same-day service, especially for plumbing leaks, power trips, and door lock issues. Call our hotline for immediate routing." }
       },
       {
         "@type": "Question",   
-        "name": "Do you cover all areas in Singapore?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes! We cover all HDB, Condo, and Landed properties across Singapore including Jurong, Woodlands, Tampines, Sengkang, Bedok, Clementi, Bukit Batok, and more." }
-      },
-      {
-        "@type": "Question",
-        "name": "Are the service providers licensed in Singapore?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We connect you with local, experienced providers. For specialized work like aircon or electrical, we ensure providers have relevant certification." }
+        "name": "Do you cover all of Singapore?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We cover all HDB, Condo, and Landed properties across Singapore, from Jurong and Clementi to Tampines, Bedok, and Woodlands." }
       }
     ]
   }
   </script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #fff; color: #1a1a1a; line-height: 1.6; }
-    header { background: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,.1); position: sticky; top: 0; z-index: 100; }
-    .logo { font-weight: 900; font-size: 1.5rem; }
-    nav a { margin-left: 1.5rem; text-decoration: none; color: #1a1a1a; font-weight: 500; }
-    .hero { text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, #fff0f6, #ffe6f0); }
-    .hero h1 { font-size: 2.5rem; font-weight: 900; position: relative; display: inline-block; }
-    .hero h1::after { content: ''; position: absolute; bottom: -5px; left: 0; right: 0; height: 5px; background: #ff3366; border-radius: 5px; }
-    .hero p { max-width: 600px; margin: 1rem auto; }
-    .btn { display: inline-block; padding: .9rem 2.5rem; background: #ff3366; color: #fff; text-decoration: none; font-weight: bold; border-radius: 50px; margin-top: 1rem; }
-    .services { padding: 2rem; background: #fff; text-align: center; max-width: 1200px; margin: 0 auto; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-    .card { background: #fff0f6; padding: 2rem; border-radius: .5rem; text-align: left; }
-    .card h3 { color: #ff3366; margin-bottom: .5rem; font-weight: 800; }
-    .card a { color: #1a1a1a; text-decoration: none; display: block; margin-top: 1rem; font-weight: 600; }
-    .how-it-works { text-align: center; padding: 2rem; background: #fff; }
-    .steps { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
-    .step { flex: 1; min-width: 200px; max-width: 250px; padding: 1rem; }
-    .why-us { padding: 3rem 2rem; background: #1a1a1a; color: #fff; }
-    .why-us h2 { text-align: center; margin-bottom: 1.5rem; }
-    .benefits { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-    .benefit h3 { color: #ff3366; margin-bottom: .5rem; position: relative; padding-left: 1.5rem; }
-    .benefit h3::before { content: '✓'; position: absolute; left: 0; top: 0; color: #ff3366; font-weight: bold; }
-    .faq { padding: 3rem 2rem; max-width: 800px; margin: 0 auto; background: #fff0f6; border-radius: .5rem; margin-top: 2rem; }
-    .faq details { background: #fff; margin-bottom: .5rem; padding: 1rem; border-radius: .5rem; }
-    footer { text-align: center; padding: 1rem; margin-top: 2rem; background: #fff0f6; }
-  </style>
 </head>
 <body>
   <header>
-    <div class="logo">H HARLO UNKLE</div>
-    <nav class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#how-it-works">How it Works</a>
+    <a href="/" class="logo">HARLO UNKLE</a>
+    <nav>
+      <a href="#services" style="font-weight: 600;">Services</a>
     </nav>
   </header>
+  
   <section class="hero">
     <h1>Need help ah?</h1>
     <p>HARLO UNKLE connects you with local independent service providers for all your home repair needs. We're the routing platform, not the contractor.</p>
-    <a href="#services" class="btn">Browse Services</a>
-    <p><small>Pick a service, then contact the vendor directly.</small></p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-lg">Browse Services</a>
+    </div>
   </section>
-  <section class="services" id="services">
+
+  <div class="section-header">
     <h2>What do you need help with?</h2>
     <p>Choose a service to view options from local providers.</p>
-    <div class="cards">
-      <div class="card">
-        <h3>🚰 Plumbing</h3>
-        <p>Leaks, chokes, clear blockages. Emergency and HDB-friendly solutions.</p>
-        <a href="/plumbing.html">View Plumbing Services -></a>
-      </div>
-      <div class="card">
-        <h3>🛠 Handyman</h3>
-        <p>General fixes, assembly, mounting, and odd jobs around the house.</p>
-        <a href="/handyman.html">View Handyman Services -></a>
-      </div>
-      <div class="card">
-        <h3>🚪 Door Repair</h3>
-        <p>Hinges, locks, alignment. Wooden, sliding, glass, and metal doors.</p>
-        <a href="/door-repair.html">View Door Repair Services -></a>
-      </div>
-      <div class="card">
-        <h3>📺 Wall Mounting</h3>
-        <p>TVs, shelves, pictures. Professional mounting for HDB & condo walls.</p>
-        <a href="/wall-mounting.html">View Wall Mounting -></a>
-      </div>
-      <div class="card">
-        <h3>❄️ Aircon Servicing</h3>
-        <p>General wash, chemical wash, gas top-up, and emergency repairs.</p>
-        <a href="/aircon.html">View Aircon Services -></a>
-      </div>
-      <div class="card">
-        <h3>🔌 Electrical</h3>
-        <p>Power trips, lighting, new sockets. Safe and certified work.</p>
-        <a href="/electrical.html">View Electrical Services -></a>
-      </div>
-    </div>
-  </section>
-  <section class="how-it-works" id="how-it-works">
-    <h2>How it works</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>1. Tell us the problem</h3>
-        <p>Describe your issue and we'll match you.</p>
-      </div>
-      <div class="step">
-        <h3>2. We route you right</h3>
-        <p>We connect you with a vetted provider.</p>
-      </div>
-      <div class="step">
-        <h3>3. Contact vendor directly</h3>
-        <p>No middlemen, no fees. Call or WhatsApp.</p>
-      </div>
-    </div>
-  </section>
-  <section class="why-us">
-    <h2>Why HARLO UNKLE?</h2>
-    <div class="benefits">
-      <div class="benefit">
-        <h3>Fast Replies</h3>
-        <p>Quick routing to the right local provider.</p>
-      </div>
-      <div class="benefit">
-        <h3>No Nonsense</h3>
-        <p>Simple discovery, clear next steps, no clutter.</p>
-      </div>
-      <div class="benefit">
-        <h3>Simple & Straightforward</h3>
-        <p>Browse, choose, then contact the vendor directly.</p>
-      </div>
-      <div class="benefit">
-        <h3>Local Help</h3>
-        <p>Independent service providers for Singapore homes.</p>
-      </div>
-    </div>
-  <div class="faq">
-    <h2 style="text-align:center;">Got Questions?</h2>
-    <details><summary>How much do services usually cost?</summary><p>Prices vary by job size. Call/WhatsApp for a free, no-obligation quote. Most providers offer transparent pricing.</p></details>
-    <details><summary>Can someone come today?</summary><p>Yes! Emergency services available for urgent issues like leaks, power trips, or door lock problems.</p></details>
-    <details><summary>Do you cover all Singapore areas?</summary><p>Coverage includes all HDB, Condo, and Landed areas in Singapore, from Jurong to Tampines.</p></details>
-    <details><summary>How fast can I get a reply?</summary><p>Most replies within 1-2 hours during business hours. Emergency lines are prioritized.</p></details>
   </div>
-  </section>
-  <section style="text-align: center; padding: 2rem; background: #fff0f6;">
+
+  <div id="services" class="cards">
+    <a href="/plumbing.html" class="card">
+      <div class="card-icon">🚰</div>
+      <h3>Plumbing</h3>
+      <p>Leaks, chokes, and clear blockages.</p>
+      <span class="card-link">View service →</span>
+    </a>
+    <a href="/handyman.html" class="card">
+      <div class="card-icon">🛠️</div>
+      <h3>Handyman</h3>
+      <p>General fixes and assembly.</p>
+      <span class="card-link">View service →</span>
+    </a>
+    <a href="/door-repair.html" class="card">
+      <div class="card-icon">🚪</div>
+      <h3>Door Repair</h3>
+      <p>Hinges, locks, and alignment.</p>
+      <span class="card-link">View service →</span>
+    </a>
+    <a href="/wall-mounting.html" class="card">
+      <div class="card-icon">📺</div>
+      <h3>Wall Mounting</h3>
+      <p>TVs, shelves, and pictures.</p>
+      <span class="card-link">View service →</span>
+    </a>
+    <a href="/aircon.html" class="card">
+      <div class="card-icon">❄️</div>
+      <h3>Aircon Servicing</h3>
+      <p>General wash, chemical wash.</p>
+      <span class="card-link">View service →</span>
+    </a>
+    <a href="/electrical.html" class="card">
+      <div class="card-icon">🔌</div>
+      <h3>Electrical</h3>
+      <p>Power trips and new sockets.</p>
+      <span class="card-link">View service →</span>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <h2>How it works</h2>
+    <p>Pick a service, then contact the vendor directly.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Tell us the problem</h3>
+      <p>Browse our categories and find your match.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>We route you right</h3>
+      <p>Get connected to a local provider instantly.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Contact directly</h3>
+      <p>Call or WhatsApp the vendor yourself.</p>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>Why HARLO UNKLE?</h2>
+  </div>
+  <div class="cards" style="margin-bottom: 3rem;">
+    <div class="card" style="border-style: dashed;">
+      <h3>⚡ Fast Replies</h3>
+      <p>Quick routing to the right local provider.</p>
+    </div>
+    <div class="card" style="border-style: dashed;">
+      <h3>🚫 No Nonsense</h3>
+      <p>Simple discovery, clear next steps, no clutter.</p>
+    </div>
+    <div class="card" style="border-style: dashed;">
+      <h3>🇸🇬 Local Help</h3>
+      <p>Independent service providers for Singapore homes.</p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h2>Got Questions?</h2>
+    <details>
+      <summary>How much do services usually cost?</summary>
+      <p>It depends on the job. We recommend asking for a quote first. Most providers offer free, transparent pricing before they start.</p>
+    </details>
+    <details>
+      <summary>Can someone come today?</summary>
+      <p>Many of our providers are available for same-day or next-day service, especially for urgent issues like leaks or power trips.</p>
+    </details>
+    <details>
+      <summary>Do you cover all Singapore areas?</summary>
+      <p>Yes! From Jurong to Tampines, we have providers covering every HDB town, Condo, and Landed estate.</p>
+    </details>
+    <details>
+      <summary>How fast can I get a reply?</summary>
+      <p>Most vendors reply within the hour. Just WhatsApp or call them directly from the service page.</p>
+    </details>
+  </div>
+
+  <section class="cta-box">
     <h2>Need help now?</h2>
-    <a href="#services" class="btn">Browse Services</a>
+    <p class="mb-2">Browse our services or call us directly.</p>
+    <a href="#" class="btn">Browse Services</a>
   </section>
+
   <footer>
-    <nav>
-      <a href="#about">About</a> |
-      <a href="#contact">Contact</a> |
-      <a href="#terms">Terms</a> |
-      <a href="#privacy">Privacy Policy</a> |
-      <a href="#disclaimer">Disclaimer</a>
-    </nav>
-    <p style="margin-top: 1rem; font-size: .8rem;">&copy; 2026 HARLO UNKLE. Singapore Home Services Directory.</p>
+    <div class="container">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <div class="copyright">© 2026 HARLO UNKLE. All rights reserved.</div>
+    </div>
   </footer>
 </body>
 </html>
