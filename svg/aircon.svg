@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- AC body -->
+  <rect x="8" y="14" width="48" height="24" rx="4" />
+  <!-- AC vent lines -->
+  <line x1="14" y1="30" x2="50" y2="30" />
+  <line x1="14" y1="34" x2="50" y2="34" />
+  <!-- AC display/LED -->
+  <circle cx="50" cy="22" r="2" fill="currentColor" opacity="0.4"/>
+  <!-- cold breeze/wind lines coming down -->
+  <path d="M16 42c0 0 4 6 0 10s-4-6 0-10" opacity="0.4"/>
+  <path d="M32 40c0 0 6 8 0 14s-6-8 0-14" opacity="0.5"/>
+  <path d="M48 42c0 0 4 6 0 10s-4-6 0-10" opacity="0.4"/>
+  <!-- snowflake accent -->
+  <line x1="12" y1="48" x2="12" y2="54" stroke-width="2" opacity="0.3"/>
+  <line x1="9" y1="51" x2="15" y2="51" stroke-width="2" opacity="0.3"/>
+</svg>
