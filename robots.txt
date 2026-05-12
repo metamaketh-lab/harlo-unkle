@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /templates/
+Disallow: /svg/
+
+Sitemap: https://harlounkle.com/sitemap.xml
