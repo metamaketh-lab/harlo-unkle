@@ -1,11 +1,11 @@
 import os
 
-BASE = "/Users/garethlee/harlo-unkle"
+BASE = "/tmp/harlo-unkle-work"
 
 pages = [
     "",
     "plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting",
-    "about", "contact", "terms", "privacy",
+    "toilet-waterproofing", "epoxy-grouting", "appliance-repair", "locksmith",
 ]
 
 areas = {
@@ -21,22 +21,26 @@ areas = {
     "pasir-ris": "Pasir Ris",
 }
 
-svcs = ["plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting"]
+svcs = ["plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting",
+        "waterproofing", "grouting", "appliance", "locksmith"]
 
-xml = ['<?xml version="1.0" encoding="UTF-8"?>']
-xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+xml = '<?xml version="1.0" encoding="UTF-8"?>'
+xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 
-# Priority: homepage = 1.0, service pages = 0.9, regional = 0.8, other = 0.7
+# Priority: homepage = 1.0, service pages = 0.9, regional = 0.8
 for p in pages:
-    xml.append('  <url><loc>https://harlounkle.com/' + (p + ".html" if p else "") + '</loc></url>')
+    if p:
+        xml += '<url><loc>https://harlounkle.com/' + p + '.html</loc></url>'
+    else:
+        xml += '<url><loc>https://harlounkle.com/</loc></url>'
 
 for s in svcs:
     for a in areas:
-        xml.append('  <url><loc>https://harlounkle.com/services/' + s + '-' + a + '.html</loc></url>')
+        xml += '<url><loc>https://harlounkle.com/services/' + s + '-' + a + '.html</loc></url>'
 
-xml.append('</urlset>')
+xml += '</urlset>'
 
 with open(os.path.join(BASE, "sitemap.xml"), "w") as f:
-    f.write("\n".join(xml))
+    f.write(xml)
 
-print("OK: sitemap.xml written with " + str(len(xml) - 2) + " URLs")
+print("OK: sitemap.xml written with " + str(len(xml.split('<url>')) - 1) + " URLs")
