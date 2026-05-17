@@ -5,6 +5,8 @@ BASE = "/Users/garethlee/harlo-unkle"
 pages = [
     "",
     "plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting",
+    "toilet-waterproofing", "epoxy-grouting", "appliance-repair", "locksmith",
+    "privacy-policy", "terms",
 ]
 
 areas = [
@@ -20,7 +22,10 @@ areas = [
     "bishan", "toa-payoh", "geylang", "kallang", "queenstown", "buki-timah", "novena", "orchard", "marine-parade",
 ]
 
-svcs = ["plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting"]
+svcs = [
+    "plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting",
+    "toilet-waterproofing", "epoxy-grouting", "appliance-repair", "locksmith",
+]
 
 xml = ['<?xml version="1.0" encoding="UTF-8"?>']
 xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
