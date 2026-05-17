@@ -303,6 +303,9 @@ p strong { color: var(--text-dark); font-weight: 600; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1.2rem; margin-bottom: 1rem; }
 .footer-links a { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
 .footer-links a:hover { color: #fff; }
+.footer-legal { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.75rem; }
+.footer-legal a { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+.footer-legal a:hover { color: rgba(255,255,255,0.7); }
 .footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
 
 /* ═══════════════════════════════
