@@ -1,4 +1,4 @@
-import os, sys, json
+import os, json
 from string import Template
 
 BASE = "/Users/garethlee/harlo-unkle"
@@ -7,18 +7,55 @@ BASE = "/Users/garethlee/harlo-unkle"
 with open(os.path.join(BASE, "templates/service-page.html")) as f:
     TPL = f.read()
 
+def render(template_str, **kwargs):
+    """Simple string replace for {{VAR}} placeholders."""
+    result = template_str
+    for key, value in kwargs.items():
+        result = result.replace("{{" + key + "}}", str(value))
+    return result
+
 AREAS = {
+    # North
+    "woodlands": "Woodlands",
+    "yishun": "Yishun",
+    "sembawang": "Sembawang",
+    # North-East
+    "ang-mo-kio": "Ang Mo Kio",
+    "hougang": "Hougang",
+    "sengkang": "Sengkang",
+    "punggol": "Punggol",
+    "serangoon": "Serangoon",
+    # East
+    "bedok": "Bedok",
+    "pasir-ris": "Pasir Ris",
+    "tampines": "Tampines",
+    "changi": "Changi",
+    "pay-lebar": "Paya Lebar",
+    # West
     "jurong-west": "Jurong West",
     "jurong-east": "Jurong East",
     "clementi": "Clementi",
-    "tampines": "Tampines",
-    "bedok": "Bedok",
-    "woodlands": "Woodlands",
-    "yishun": "Yishun",
-    "ang-mo-kio": "Ang Mo Kio",
+    "bukit-batok": "Bukit Batok",
+    "bukit-panjang": "Bukit Panjang",
+    "choa-chu-kang": "Choa Chu Kang",
+    "pioneer": "Pioneer",
+    # Central
     "bishan": "Bishan",
-    "pasir-ris": "Pasir Ris",
+    "toa-payoh": "Toa Payoh",
+    "geylang": "Geylang",
+    "kallang": "Kallang",
+    "queenstown": "Queenstown",
+    "buki-timah": "Bukit Timah",
+    "novena": "Novena",
+    "orchard": "Orchard",
+    "marine-parade": "Marine Parade",
 }
+
+def build_region_links(svc_slug):
+    links = []
+    for a_slug, a_label in AREAS.items():
+        links.append('<a href="/services/' + svc_slug + '-' + a_slug + '.html">' + a_label + '</a>')
+    return '\n\n    <div class="section-header" style="padding-top:2rem">\n      <span class="section-label">Serving All of Singapore</span>\n      <p style="margin-bottom:1rem;color:var(--text-secondary)">We cover every HDB town and neighbourhood — HDB, condo, and landed properties islandwide.</p>\n      <div class="region-areas"><div class="region-grid">\n        ' + '\n        '.join(links) + '\n      </div></div>'
 
 def build_subs(svc_name, extra_text=""):
     icons = {
@@ -178,7 +215,7 @@ for svc in SVCS:
     
     biz = json.dumps({"@context":"https://schema.org","@type":"LocalBusiness","name":"HARLO UNKLE - " + svc["hl"],"description":"HARLO UNKLE " + svc["hl"],"telephone":"[INSERT NUMBER]","priceRange":svc["price_range"],"areaServed":[{"@type":"Country","name":"Singapore"}],"serviceType":svc["svc_types"]})
     
-    p = Template(TPL).substitute(
+    p = render(TPL,
         TITLE=svc["hl"] + " | HARLO UNKLE",
         DESC=svc["lead"],
         KEYWORDS=", ".join(svc["svc_types"]),
@@ -198,7 +235,7 @@ for svc in SVCS:
         CTA_PHONE_HINT="We'll find you a local provider.",
         FAQ_HEADING="Common Questions",
         FAQS=fhtml,
-        REGION_LINKS="",
+        REGION_LINKS=build_region_links(svc["slug"]),
         BOTTOM_CTA_TITLE="Need Help Now?",
         BOTTOM_CTA_BODY="One call. We route you to the nearest provider.",
         WA_TEXT="Hi%20Unkle%2C%20I%20need%20help",
@@ -226,19 +263,34 @@ for svc in SVCS:
             q = svc["faq_q"][i].rstrip("?") + " in " + a_label + "?"
             a_fs.append(json.dumps({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":svc["faq_a"][i].replace("<strong>","").replace("</strong>","")}}))
         
-        a_biz = json.dumps({"@context":"https://schema.org","@type":"LocalBusiness","name":"HARLO UNKLE " + svc["badge"] + " " + a_label,"description":svc["badge"] + " services in " + a_label + ", Singapore.","telephone":"[INSERT NUMBER]","priceRange":svc["price_range"],"areaServed":[{"@type":"Place","name":a_label + ", Singapore"}],"serviceType":[s.replace(" Singapore"," in " + a_label) for s in svc["svc_types"]]})
-        
+        a_biz = json.dumps({"@context":"https://schema.org","@type":"LocalBusiness","name":"HARLO UNKLE " + svc["badge"] + " " + a_label,"description":svc["badge"] + " services in " + a_label + ", Singapore.","telephone":"[INSERT NUMBER]","priceRange":svc["price_range"],"areaServed":[{"@type":"Country","name":"Singapore"},{"@type":"Place","name":a_label + ", Singapore"}],"serviceType":[s.replace(" Singapore"," in " + a_label) for s in svc["svc_types"]]})
+
+        # Group areas by URA region for smarter cross-linking
+        REGIONS = {
+            "North": ["woodlands","yishun","sembawang"],
+            "North-East": ["ang-mo-kio","hougang","sengkang","punggol","serangoon"],
+            "East": ["bedok","pasir-ris","tampines","changi","pay-lebar"],
+            "West": ["jurong-west","jurong-east","clementi","bukit-batok","bukit-panjang","choa-chu-kang","pioneer"],
+            "Central": ["bishan","toa-payoh","geylang","kallang","queenstown","buki-timah","novena","orchard","marine-parade"],
+        }
+        # Find which region this area belongs to
+        current_region = None
+        for reg, reg_areas in REGIONS.items():
+            if a_slug in reg_areas:
+                current_region = reg
+                break
+        # Show same-region areas (excluding current area)
+        nearby_areas = []
+        if current_region:
+            nearby_areas = [(slug, AREAS[slug]) for slug in REGIONS[current_region] if slug != a_slug and slug in AREAS]
         alinks = []
-        for os2, ol2 in AREAS.items():
-            if os2 == a_slug:
-                alinks.append('<a class="active">' + ol2 + '</a>')
-            else:
-                alinks.append('<a href="/services/' + svc["slug"] + '-' + os2 + '.html">' + ol2 + '</a>')
+        for os2, ol2 in nearby_areas:
+            alinks.append('<a href="/services/' + svc["slug"] + '-' + os2 + '.html">' + ol2 + '</a>')
         rhtml = '\n  <div class="region-areas"><h3>We also serve nearby areas</h3><div class="region-grid">' + "\n      ".join(alinks) + "\n    </div></div>"
         
         wa = "Hi%20Unkle%2C%20I%20need%20" + svc["slug"] + "%20near%20" + a_label.replace(" ","%20")
         
-        p2 = Template(TPL).substitute(
+        p2 = render(TPL,
             TITLE=svc["badge"] + " " + a_label + " | HARLO UNKLE",
             DESC=svc["badge"] + " services in " + a_label + ", Singapore. Book now.",
             KEYWORDS=svc["slug"] + " " + a_slug.replace("-"," ") + ", " + ", ".join(svc["svc_types"]),
@@ -246,7 +298,7 @@ for svc in SVCS:
             OG_DESC=svc["badge"] + " available in " + a_label + ", Singapore.",
             CANONICAL="https://harlounkle.com/services/" + svc["slug"] + "-" + a_slug + ".html",
             OG_URL="https://harlounkle.com/services/" + svc["slug"] + "-" + a_slug + ".html",
-            CSS_PATH="/../style.css",
+            CSS_PATH="/style.css",
             BADGE=svc["badge"] + " in " + a_label,
             HEADLINE=svc["badge"] + " " + a_label,
             LEAD="Trusted " + svc["badge"].lower() + " services available in " + a_label + ". Get a free quote today.",

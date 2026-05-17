@@ -5,21 +5,20 @@ BASE = "/Users/garethlee/harlo-unkle"
 pages = [
     "",
     "plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting",
-    "about", "contact", "terms", "privacy",
 ]
 
-areas = {
-    "jurong-west": "Jurong West",
-    "jurong-east": "Jurong East",
-    "clementi": "Clementi",
-    "tampines": "Tampines",
-    "bedok": "Bedok",
-    "woodlands": "Woodlands",
-    "yishun": "Yishun",
-    "ang-mo-kio": "Ang Mo Kio",
-    "bishan": "Bishan",
-    "pasir-ris": "Pasir Ris",
-}
+areas = [
+    # North
+    "woodlands", "yishun", "sembawang",
+    # North-East
+    "ang-mo-kio", "hougang", "sengkang", "punggol", "serangoon",
+    # East
+    "bedok", "pasir-ris", "tampines", "changi", "pay-lebar",
+    # West
+    "jurong-west", "jurong-east", "clementi", "bukit-batok", "bukit-panjang", "choa-chu-kang", "pioneer",
+    # Central
+    "bishan", "toa-payoh", "geylang", "kallang", "queenstown", "buki-timah", "novena", "orchard", "marine-parade",
+]
 
 svcs = ["plumbing", "handyman", "aircon", "electrical", "door-repair", "wall-mounting"]
 
