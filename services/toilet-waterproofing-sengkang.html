@@ -165,21 +165,15 @@
 
 <script>
 document.addEventListener('click', function(e) {
-  var target = e.target.closest('a');
-  if (!target || !target.hasAttribute('href')) return;
-  var href = target.getAttribute('href');
-  var payload = {'page_location': window.location.href, 'page_title': document.title};
-  if (href.indexOf('tel:') === 0) {
-    try {
-      navigator.sendBeacon('https://www.google-analytics.com/g/collect?' +
-        'v=2&tid=G-Q82QGJL0E4&cid=' + (window.ga_cid || Math.random().toString(36).slice(2)) +
-        '&en=call_click&dl=' + encodeURIComponent(window.location.href) +
-        '&dt=' + encodeURIComponent(document.title));
-    } catch(e) {}
-    if (typeof gtag === 'function') gtag('event', 'call_click', payload);
-  }
-  if (href.indexOf('wa.me') !== -1) {
-    if (typeof gtag === 'function') gtag('event', 'whatsapp_click', payload);
+  var el = e.target.closest('a');
+  if (!el) return;
+  var h = el.getAttribute('href');
+  if (!h) return;
+  window.dataLayer = window.dataLayer || [];
+  if (h.indexOf('tel:') === 0) {
+    dataLayer.push({'event': 'call_click', 'page_location': location.href, 'page_title': document.title});
+  } else if (h.indexOf('wa.me') !== -1) {
+    dataLayer.push({'event': 'whatsapp_click', 'page_location': location.href, 'page_title': document.title});
   }
 });
 </script>
