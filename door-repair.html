@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-SG">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q82QGJL0E4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q82QGJL0E4');
+    </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Door Repair in Singapore | HARLO UNKLE</title>
@@ -153,12 +162,10 @@ document.addEventListener('click', function(e) {
   if (!target || !target.hasAttribute('href')) return;
   var href = target.getAttribute('href');
   if (href.indexOf('tel:') === 0) {
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({'event': 'call_click', 'page_location': window.location.href, 'page_title': document.title});
+    gtag('event', 'call_click', {'page_location': window.location.href, 'page_title': document.title});
   }
   if (href.indexOf('wa.me') !== -1) {
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({'event': 'whatsapp_click', 'page_location': window.location.href, 'page_title': document.title});
+    gtag('event', 'whatsapp_click', {'page_location': window.location.href, 'page_title': document.title});
   }
 });
 </script>

@@ -220,5 +220,18 @@
     <a href="https://wa.me/[INSERT NUMBER]?text=Hi%20Unkle%2C%20I%20need%20epoxy%20grouting%20for%20my%20home." target="_blank" class="btn btn-wa">WhatsApp</a>
   </div>
 
+<script>
+document.addEventListener('click', function(e) {
+  var target = e.target.closest('a');
+  if (!target || !target.hasAttribute('href')) return;
+  var href = target.getAttribute('href');
+  if (href.indexOf('tel:') === 0) {
+    gtag('event', 'call_click', {'page_location': window.location.href, 'page_title': document.title});
+  }
+  if (href.indexOf('wa.me') !== -1) {
+    gtag('event', 'whatsapp_click', {'page_location': window.location.href, 'page_title': document.title});
+  }
+});
+</script>
 </body>
 </html>
