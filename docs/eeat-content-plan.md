@@ -10,8 +10,8 @@ Build topical authority for Google by publishing helpful, Singapore-specific hom
 
 ### Plumbing (4 articles)
 1. ✅ Plumber Cost Singapore 2026: Complete Pricing Guide
-2. Emergency Plumber Singapore: What to Do Before They Arrive
-3. HDB Pipe Leak: Causes, Fixes, and When to Call a Pro
+2. ✅ Emergency Plumber Singapore: What to Do Before They Arrive
+3. ✅ HDB Pipe Leak: Causes, Fixes, and When to Call a Pro
 4. Water Heater Installation Singapore: Cost, Rules, and Best Options
 
 ### Aircon (3 articles)
@@ -88,3 +88,5 @@ Build topical authority for Google by publishing helpful, Singapore-specific hom
 | 1 | Plumber Cost Singapore 2026 | blog/plumber-cost-singapore-2026.md | 2026-05-29 |
 | 2 | Aircon Chemical Wash vs General | blog/aircon-servicing-singapore-chemical-wash-vs-general.md | 2026-05-29 |
 | 3 | HDB Home Repairs DIY Guide | blog/hdb-home-repairs-diy-guide.md | 2026-05-29 |
+| 4 | Emergency Plumber Singapore | blog/emergency-plumber-singapore-2026.md | 2026-06-03 |
+| 5 | HDB Pipe Leak Singapore | blog/hdb-pipe-leak-singapore-guide.md | 2026-06-06 |
